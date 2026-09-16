@@ -1,14 +1,20 @@
 # Pattern catalogue — where to look
 
-Each pattern names the apps (and sheet numbers) that do it well. If a local screen
-library is present, open the sheet with Read: `~/.claude/skills/ui-craft/refs/sheets/<id>-<App>-<nn>.jpg`.
+Each pattern names the apps (and sheet numbers) that do it well. Open the sheet with Read: `~/.claude/skills/ui-craft/refs/sheets/<id>-<App>-<nn>.jpg`.
 
 ## Home / root screens
-- Rails of artwork with a big section title and a "See all": Spotify 01–02, Apple Music 01–02, Apple TV 01, Denim 15, Netflix 02, TIDAL 01.
+- Rails of artwork with a big section title and a "See all": Spotify 01–02, Apple Music 01–02, Apple TV 01, Netflix 02, TIDAL 01.
 - Greeting + timeline of cards: Headspace 01–02.
 - Task/list roots with a filter field under the title: Rise 01, Superlist 01, Linear 01.
 - Feed with stories rail: Instagram 01–02. Full-bleed video feed: TikTok 01–02, YouTube 01, Sora 03–04.
 - Utility root with one big action: Atoms 01 (habit disc), ten ten 01 (add friends), Riverside 02 (+ Create).
+
+## Create, record and invite
+- Create entry as one floating "+ Create" pill over a quiet list: Riverside 02.
+- Recording studio with a settings sheet over the picture (sliders and toggles): Riverside 02.
+- Invite sheet with role cards (guest, producer, audience) and share and link actions: Riverside 02.
+- After-session feedback sheet with chips and a field: Riverside 02.
+- Create hub with source choices (camera, import, drafts) as labelled discs over a drafts rail: see `examples/before-after/02-create.jpg`.
 
 ## Media detail and players
 - Now Playing on a dark stage: Spotify 01, 03; TIDAL 01; Moises 01.
@@ -18,8 +24,8 @@ library is present, open the sheet with Read: `~/.claude/skills/ui-craft/refs/sh
 
 ## Editors and tool UIs
 - Full video editor (undo/redo/save header, transport, ruler, multi-track timeline, contextual tool band): Splice, Instagram Reels, VN, CapCut; tool panel with Cancel · title · Apply; property rows in a sheet.
-- Dark stage + tool band + thumbnail rail: Halide 01–02, Moises 01, Riverside 01–03.
-- Light canvas + floating tool strip + rising panel: Photoshop 01–03, Playground 01, Denim 01–03.
+- Dark stage + tool band + thumbnail rail (video, audio and camera editors): Riverside 01–03, Moises 01, Halide 01–02.
+- Light canvas + floating tool strip + rising panel (image and design editors): Photoshop 01–03, Playground 01, Denim 01–03.
 - Type panel (sample grid, slider, stepper): Denim 01, 03.
 - Colour pickers: Denim 02, Not Boring Camera 01, Playground 01.
 - Layers / object lists in a half sheet: Photoshop 01, 03.
@@ -27,8 +33,8 @@ library is present, open the sheet with Read: `~/.claude/skills/ui-craft/refs/sh
 
 ## Lists and rows
 - 44–56 pt rows, title 15 + sub 13 grey, trailing ⋯ or chevron: Spotify 01, Apple Music 01, Uber 01, Halide 01.
-- Grouped white cards on a grey ground: Rewind 01, Notion 01, Craft 01, WhatsApp 01.
-- Grouped dark cards: Opal 01, Not Boring Camera 01, Halide 01 (settings).
+- Grouped white cards on a grey ground (settings, profile, account): Rewind 01, Notion 01, Craft 01, WhatsApp 01.
+- Grouped dark cards (dark settings): Opal 01, Not Boring Camera 01, Halide 01.
 - Numbered tracks: Apple Music 01, TIDAL 01.
 - Contact / follow rows with a pill action: Instagram 01, TikTok 02, Sora 03, BeReal 01, VSCO 02.
 - Indexed contact list: WhatsApp 01.

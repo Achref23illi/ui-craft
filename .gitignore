@@ -1,10 +1,9 @@
 refs/*.log
 .DS_Store
-# local screen library and tooling (kept on disk, not published)
-refs/screens/
-refs/sheets/
-refs/user-refs/
+# collection tooling stays local; the screens and contact sheets are published
 refs/dl.sh
 refs/sheets.py
 refs/apps.json
 refs/ids-batch*.txt
+refs/library/
+__pycache__/
