@@ -1,6 +1,6 @@
 # ui-craft — an agent skill for mobile UI that looks like a real app
 
-**By [Achref Arabi](https://github.com/Achref23illi)** · [LinkedIn](https://www.linkedin.com/in/achraf-arabi-a35376221/)
+**By [Achref Arabi](https://github.com/Achref23illi)** · [LinkedIn](https://www.linkedin.com/in/achraf-arabi-a35376221/) · [Instagram](https://www.instagram.com/achref.dev/)
 
 A skill for Claude Code (and any agent that reads `SKILL.md`) built from a study of
 44 shipped iOS apps — Spotify, Airbnb, Instagram, TikTok, Apple Music, Apple TV,
@@ -176,7 +176,7 @@ Made for the community by **Achref Arabi** (2026). Use it, fork it, change it an
 ship with it, in personal or commercial work. Issues and pull requests are welcome.
 
 Follow the work: [LinkedIn](https://www.linkedin.com/in/achraf-arabi-a35376221/) ·
-[GitHub](https://github.com/Achref23illi) · [arabiachraf.me](https://arabiachraf.me)
+[Instagram](https://www.instagram.com/achref.dev/) · [GitHub](https://github.com/Achref23illi) · [arabiachraf.me](https://arabiachraf.me)
 
 The reference screenshots in `refs/screens/` and `refs/sheets/` show apps made by
 their respective companies and remain their property. They are included for study and
