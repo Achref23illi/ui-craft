@@ -1,0 +1,7 @@
+# The screenshot library is built locally from Refero with a Refero account.
+# Screens are the app makers' copyrighted UI and Refero's paid content: never committed.
+refs/screens/
+refs/sheets/
+refs/ids*.txt
+refs/*.log
+.DS_Store
