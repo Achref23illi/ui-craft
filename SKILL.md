@@ -1,6 +1,6 @@
 ---
 name: ui-craft
-description: How successful mobile apps are actually built — spacing, hierarchy, components and screen patterns distilled from 2,600 real iOS screens (44 apps, Refero). Use before designing or restyling any mobile screen, when reviewing a screen for "does this look like a real app", or when you need a reference for a specific pattern (player, editor, feed, sheet, paywall, empty state…).
+description: How successful mobile apps are actually built — spacing, hierarchy, components and screen patterns distilled from 2,600 real iOS screens (44 apps). Use before designing or restyling any mobile screen, when reviewing a screen for "does this look like a real app", or when you need a reference for a specific pattern (player, editor, feed, sheet, paywall, empty state…).
 ---
 
 # UI craft — what real apps do
@@ -9,21 +9,21 @@ By Achref Arabi · https://github.com/Achref23illi/ui-craft
 
 A skill built from a study of 44 shipped iOS apps (Spotify, Airbnb, Instagram, TikTok,
 Apple Music, Apple TV, Netflix, VSCO, Halide, Denim, Photoshop, Riverside, Moises,
-Playground, Revolut, Linear, Notion, ChatGPT, Claude, Uber…). 2,602 screens are stored
-locally; about 270 were read closely and annotated. The point of the skill is not a
+Playground, Revolut, Linear, Notion, ChatGPT, Claude, Uber…). 2,602 screens were
+studied; about 270 were read closely and annotated. The point of the skill is not a
 style. It is the discipline these apps share: where they spend space and where they
 don't, how few things they show, and how every element earns its place.
 
 ## How to use this skill
 
-1. **Before designing a screen**, find its pattern in `refs/patterns.md` and open two or
-   three of the listed contact sheets with Read (`refs/sheets/<id>-<App>-<nn>.jpg`, six
-   screens each). Look at the real thing before drawing.
+1. **Before designing a screen**, find its pattern in `refs/patterns.md`: it names the apps
+   and screens that do it well. If a local screen library is present, open two or three of
+   the listed contact sheets with Read (`refs/sheets/<id>-<App>-<nn>.jpg`, six screens
+   each). Look at the real thing before drawing.
 2. **Apply the rules below** as numbers, not vibes. If a screen violates one, it is the
    screen that changes, not the rule, unless the brand brief says otherwise.
 3. **After building**, run the checklist at the end on a device screenshot.
 4. Per-app observations live in `refs/notes.md`; the app index in `refs/INDEX.md`.
-   To add apps: `refs/dl.sh` downloads by id list, `refs/sheets.py` builds sheets.
 
 ## The rules (with the numbers behind them)
 
@@ -93,7 +93,7 @@ don't, how few things they show, and how every element earns its place.
     exception**: an editor counts per band, not per screen. Header (back · undo · redo ·
     primary), transport (play · full screen · timecode), timeline, and one scrollable
     band of 5–6 labelled tools that changes with the selection. Hiding tools there reads
-    as "this app can't do it" (Splice, Instagram Reels, VN; `refs/user-refs/`).
+    as "this app can't do it" (Splice, Instagram Reels, VN).
 
 12. **Every action icon carries a visible label.** Only home, search, back and close
     stand alone; tab bars are always labelled; tool rows use icon + 10–11 pt label.
@@ -191,10 +191,8 @@ label; all-caps 14-pt headings; toasts that need to be dismissed.
 ## Files
 
 - `refs/INDEX.md` — the 44 apps, counts, and what each is good for.
-- `refs/patterns.md` — pattern → sheets to open.
+- `refs/patterns.md` — pattern → apps and screens to look at.
 - `refs/notes.md` — per-app measurements and observations.
 - `refs/ux-research.md` — sourced findings on choices per screen, icon labels, tap targets, typefaces and icon systems.
 - `refs/lessons.md` — what changed when the research met real screens (tool-screen exception, button sizes).
-- `refs/user-refs/` — editor references supplied by the team (timeline, music panel, clip tools, properties sheet).
-- `refs/sheets/` — 434 contact sheets (six screens each). `refs/screens/` — 2,602 originals.
-- `refs/dl.sh`, `refs/sheets.py`, `refs/apps.json` — the pipeline to extend the library.
+- `refs/sheets/` — optional local screen library (six-up contact sheets), used when present.

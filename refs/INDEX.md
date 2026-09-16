@@ -1,6 +1,6 @@
 # Reference library index
 
-Screens live in `refs/screens/<appId>/<uuid>.jpg` (488×1057 thumbnails from Refero, iOS). Contact sheets of six screens live in `refs/sheets/<appId>-<App>-<nn>.jpg`; read a sheet to study six screens at once. Study notes per app are in `refs/notes.md`.
+The 44 iOS apps studied, with screen and sheet counts. Study notes per app are in `refs/notes.md`. If a local screen library is present, contact sheets of six screens live in `refs/sheets/<appId>-<App>-<nn>.jpg`; read a sheet to study six screens at once.
 
 | id | app | tagline | screens | sheets | what to look at |
 |---|---|---|---|---|---|

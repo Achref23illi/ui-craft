@@ -9,7 +9,7 @@ articles. By Achref Arabi.
 Counting choices in the first viewport cut the home, media, publish and feed screens
 without losing anything: extras went into one ⋯, into the content (a tile is the
 action), or into a gesture. On the editor the same count produced a toy. Real editors
-(Splice, Instagram Reels, VN, CapCut, the layout editor in `user-refs/`) show 5–6
+(Splice, Instagram Reels, VN, CapCut and layout editors) show 5–6
 labelled tools in one scrollable band plus undo · redo · save in the header, a play
 and full-screen pair, a timecode ruler and a multi-track timeline. Users expect that
 density; hiding it reads as "this app can't do it".

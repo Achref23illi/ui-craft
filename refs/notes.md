@@ -1,4 +1,4 @@
-# Study notes — one block per app (screens from Refero, iOS). By Achref Arabi.
+# Study notes — one block per app (iOS). By Achref Arabi.
 
 ## Spotify (001) · dark media player
 - Stage #121212; the top of a screen takes a colour tint sampled from the artwork, fading to the stage within ~40% of the height. Header text sits on the tint.

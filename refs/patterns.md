@@ -1,7 +1,7 @@
 # Pattern catalogue — where to look
 
-Each pattern names the apps (and sheet numbers) that do it well. Open the sheet
-with Read: `~/.claude/skills/ui-craft/refs/sheets/<id>-<App>-<nn>.jpg`.
+Each pattern names the apps (and sheet numbers) that do it well. If a local screen
+library is present, open the sheet with Read: `~/.claude/skills/ui-craft/refs/sheets/<id>-<App>-<nn>.jpg`.
 
 ## Home / root screens
 - Rails of artwork with a big section title and a "See all": Spotify 01–02, Apple Music 01–02, Apple TV 01, Denim 15, Netflix 02, TIDAL 01.
@@ -17,7 +17,7 @@ with Read: `~/.claude/skills/ui-craft/refs/sheets/<id>-<App>-<nn>.jpg`.
 - Mini player docked above the tab bar: Spotify 01, Apple Music 01, TIDAL 01.
 
 ## Editors and tool UIs
-- Full video editor (undo/redo/save header, transport, ruler, multi-track timeline, contextual tool band): `user-refs/editor-timeline-tools.png`, `editor-clip-tools-row.png`, `editor-reels-clip-selected.png`; tool panel with Cancel · title · Apply: `editor-music-panel.png`; property rows in a sheet: `editor-layout-properties-sheet.png`.
+- Full video editor (undo/redo/save header, transport, ruler, multi-track timeline, contextual tool band): Splice, Instagram Reels, VN, CapCut; tool panel with Cancel · title · Apply; property rows in a sheet.
 - Dark stage + tool band + thumbnail rail: Halide 01–02, Moises 01, Riverside 01–03.
 - Light canvas + floating tool strip + rising panel: Photoshop 01–03, Playground 01, Denim 01–03.
 - Type panel (sample grid, slider, stepper): Denim 01, 03.

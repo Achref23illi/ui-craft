@@ -1,2 +1,10 @@
 refs/*.log
 .DS_Store
+# local screen library and tooling (kept on disk, not published)
+refs/screens/
+refs/sheets/
+refs/user-refs/
+refs/dl.sh
+refs/sheets.py
+refs/apps.json
+refs/ids-batch*.txt
