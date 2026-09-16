@@ -84,6 +84,19 @@ don't, how few things they show, and how every element earns its place.
     readouts. Tracked uppercase only on 11–12 pt tool labels and eyebrows, never on
     titles. Cards are for objects (a place, an item, a plan), not for grouping text.
 
+11. **The tap budget: five choices in the first viewport, one of them primary.** Count
+    every tappable control above the fold except the tab bar and back. Five or fewer
+    (W3C cognitive pattern), one filled primary, the rest as content (tiles, rows) or
+    behind one clearly named "more" at most two levels deep (NN/g progressive
+    disclosure). Two similar buttons side by side is the fastest way to make a user
+    hesitate. Sources and numbers in `refs/ux-research.md`.
+
+12. **Every action icon carries a visible label.** Only home, search, back and close
+    stand alone; tab bars are always labelled; tool rows use icon + 10–11 pt label.
+    Eleven studies over nineteen years and NN/g say the same thing: users match
+    labels, not pictures, and rely on position for the rest. Tap targets 44 pt,
+    48 pt at the screen edges, with padding between neighbours.
+
 ## Measurements to reuse (390-pt screen)
 
 | Element | Value |
@@ -105,6 +118,9 @@ don't, how few things they show, and how every element earns its place.
 | Toast | 40–48 pill, 14/600 |
 | Tool label | 11 uppercase mono/sans with 0.06 em, or 12–13 sentence case |
 | Big readout | 30–44/700 tabular (timecode, percentage, price) |
+| Tap budget | ≤ 5 choices in the first viewport (tab bar and back excluded) · 1 primary · "more" ≤ 2 levels |
+| Typeface | one family with high x-height, open apertures, tabular figures, ≥ 5 weights; free with an Expo package (Plus Jakarta Sans, Figtree, DM Sans, Onest, Geist, Public Sans) or the system face; mono only for readouts |
+| Icons | one SVG set on a 24 grid (Phosphor: outline inactive / fill active; or Lucide 2-px); labelled except home · search · back · close |
 
 ## Screen recipes
 
@@ -141,6 +157,7 @@ don't, how few things they show, and how every element earns its place.
 - Is there any box, border or divider that a change of ground or 12 pt of air could replace?
 - Are all tiles in a rail the same size, corner and label style?
 - Is the accent used ≤ 3 times on the screen (action, active tab, selection)?
+- Are there ≤ 5 tappable choices in the first viewport, and does every action icon have a label?
 - Do empty, loading and error states exist, each as one line + one move?
 - Is every number tabular, every timecode mono, every uppercase label ≤ 12 pt?
 - Does the tool UI (if any) sit on black with the picture untouched?
@@ -159,5 +176,6 @@ label; all-caps 14-pt headings; toasts that need to be dismissed.
 - `refs/INDEX.md` — the 44 apps, counts, and what each is good for.
 - `refs/patterns.md` — pattern → sheets to open.
 - `refs/notes.md` — per-app measurements and observations.
+- `refs/ux-research.md` — sourced findings on choices per screen, icon labels, tap targets, typefaces and icon systems.
 - `refs/sheets/` — 434 contact sheets (six screens each). `refs/screens/` — 2,602 originals.
 - `refs/dl.sh`, `refs/sheets.py`, `refs/apps.json` — the pipeline to extend the library.

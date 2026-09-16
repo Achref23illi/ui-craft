@@ -15,6 +15,7 @@ What you get:
   detail, player, editor, publish form, settings, comments, paywall, onboarding),
   a done-checklist and the anti-patterns that separate cheap screens from real ones.
 - **`refs/notes.md`** — per-app observations with measurements, app by app.
+- **`refs/ux-research.md`** — sourced findings: choices per screen, icon labels, tap targets, typefaces, icon systems.
 - **`refs/patterns.md`** — pattern → which apps and sheets to look at.
 - **`refs/INDEX.md`** — the 44 apps and what each is good for.
 - **`refs/screens/`** — 2,602 screens from the 44 apps (488×1057), the engine of the skill.
