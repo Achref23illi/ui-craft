@@ -25,7 +25,7 @@ don't, how few things they show, and how every element earns its place.
 4. Per-app observations live in `refs/notes.md`; the app index in `refs/INDEX.md`.
    To add apps: `refs/dl.sh` downloads by id list, `refs/sheets.py` builds sheets.
 
-## The ten rules (with the numbers behind them)
+## The rules (with the numbers behind them)
 
 1. **Content carries the screen; chrome is nearly invisible.** Artwork, video, photos and
    the user's words fill the frame. Headers are one title (15–17/600 centred, or 28–34/700
@@ -89,13 +89,24 @@ don't, how few things they show, and how every element earns its place.
     (W3C cognitive pattern), one filled primary, the rest as content (tiles, rows) or
     behind one clearly named "more" at most two levels deep (NN/g progressive
     disclosure). Two similar buttons side by side is the fastest way to make a user
-    hesitate. Sources and numbers in `refs/ux-research.md`.
+    hesitate. Sources and numbers in `refs/ux-research.md`. **Tool screens are the
+    exception**: an editor counts per band, not per screen. Header (back · undo · redo ·
+    primary), transport (play · full screen · timecode), timeline, and one scrollable
+    band of 5–6 labelled tools that changes with the selection. Hiding tools there reads
+    as "this app can't do it" (Splice, Instagram Reels, VN; `refs/user-refs/`).
 
 12. **Every action icon carries a visible label.** Only home, search, back and close
     stand alone; tab bars are always labelled; tool rows use icon + 10–11 pt label.
     Eleven studies over nineteen years and NN/g say the same thing: users match
     labels, not pictures, and rely on position for the rest. Tap targets 44 pt,
     48 pt at the screen edges, with padding between neighbours.
+
+13. **Buttons come in three sizes, and most screens need the small one.** The 48–52
+    hero pill only where the screen exists to make one decision (intro, export, publish,
+    paywall). Actions inside a browsing screen are compact 36–40 pills that hug their
+    text; tertiary actions are 15/600 text in the accent. Discs: 56 for source choices,
+    44 for media actions. Two hero buttons on consecutive screens means one of them is
+    a step, not a decision. Lessons in `refs/lessons.md`.
 
 ## Measurements to reuse (390-pt screen)
 
@@ -106,7 +117,9 @@ don't, how few things they show, and how every element earns its place.
 | Section title → content | 12 · section → section 24–28 |
 | List row | 44 (dense) · 52–56 (with sub-line) · 64 (with 48 thumb) |
 | Card radius | 12 (rows, small cards) · 16–20 (artwork, sheets) · 24 (large sheets) |
-| Button | 48–56 tall, pill or 12–16 radius, label 15–17/600 · compact 36–40 with 13/600 |
+| Button | hero 48–52 (one decision per flow) · compact 36–40 pill, 13/600, hugs text · text 15/600 accent |
+| Disc | 56 source choice · 44 media action · 32–36 row pill |
+| Editor | header 44 (back · undo · redo · primary) · transport row 44 · ruler 11 mono · video track 56–64 · audio track 40 · tool band 5–6 × (icon 22 + 11 label), scrolls, contextual |
 | Pill chip | 32–36 tall, 12–14 padding, 13/600 |
 | Icon | 24 in headers and rows · 20 in tool rows · 28–32 in feed rails |
 | Avatar | 24 inline · 32–36 in rows · 44–48 in lists · 64 stories · 96 profile |
@@ -133,9 +146,12 @@ don't, how few things they show, and how every element earns its place.
 - **Player / Now playing**: dark, artwork square with 16 gutters · title 22–24/700 + 15–16 grey
   · thin progress with 11 times · 5-control row with a 64 disc · tertiary icon row · lyrics /
   queue as a peeking card.
-- **Editor**: black stage · header (× · name 13/600 + status 10 · primary text button) · picture
-  · scrub row · tool tabs (text, selected as white pill) · thumbnail rail (52–64 wide, selected
-  with a 2-pt accent outline) · tool row (icon 22 + 11 uppercase label + accent dot) · safe area.
+- **Editor**: black stage · header (back · undo · redo · primary pill 32) · picture at its
+  ratio · transport row (play centred, full screen right, timecode mono) · ruler with 2-s
+  ticks · playhead line · video track 56–64 (thumbnails, selected with a 2-pt accent
+  outline, trim handles) · audio track 40 (name + duration on a colour) · mute discs at
+  the left · tool band of 5–6 labelled tools that scrolls and changes with the selection
+  · tool panels as sheets with Cancel · title · Apply and a Reset in the header.
 - **Publish / form**: title 28/700 · destination tiles or radio cards · one field at a time with a
   13 grey label · "More options" disclosure · pinned CTA with a 12 grey line under it.
 - **Settings / profile**: avatar 44–56 row · grouped cards of 44–52 rows · section titles 15/600
@@ -157,7 +173,8 @@ don't, how few things they show, and how every element earns its place.
 - Is there any box, border or divider that a change of ground or 12 pt of air could replace?
 - Are all tiles in a rail the same size, corner and label style?
 - Is the accent used ≤ 3 times on the screen (action, active tab, selection)?
-- Are there ≤ 5 tappable choices in the first viewport, and does every action icon have a label?
+- Are there ≤ 5 tappable choices in the first viewport (per band on a tool screen), and does every action icon have a label?
+- Is the only hero-size button on a screen that ends a flow; are in-screen actions compact?
 - Do empty, loading and error states exist, each as one line + one move?
 - Is every number tabular, every timecode mono, every uppercase label ≤ 12 pt?
 - Does the tool UI (if any) sit on black with the picture untouched?
@@ -177,5 +194,7 @@ label; all-caps 14-pt headings; toasts that need to be dismissed.
 - `refs/patterns.md` — pattern → sheets to open.
 - `refs/notes.md` — per-app measurements and observations.
 - `refs/ux-research.md` — sourced findings on choices per screen, icon labels, tap targets, typefaces and icon systems.
+- `refs/lessons.md` — what changed when the research met real screens (tool-screen exception, button sizes).
+- `refs/user-refs/` — editor references supplied by the team (timeline, music panel, clip tools, properties sheet).
 - `refs/sheets/` — 434 contact sheets (six screens each). `refs/screens/` — 2,602 originals.
 - `refs/dl.sh`, `refs/sheets.py`, `refs/apps.json` — the pipeline to extend the library.

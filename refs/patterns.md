@@ -17,6 +17,7 @@ with Read: `~/.claude/skills/ui-craft/refs/sheets/<id>-<App>-<nn>.jpg`.
 - Mini player docked above the tab bar: Spotify 01, Apple Music 01, TIDAL 01.
 
 ## Editors and tool UIs
+- Full video editor (undo/redo/save header, transport, ruler, multi-track timeline, contextual tool band): `user-refs/editor-timeline-tools.png`, `editor-clip-tools-row.png`, `editor-reels-clip-selected.png`; tool panel with Cancel · title · Apply: `editor-music-panel.png`; property rows in a sheet: `editor-layout-properties-sheet.png`.
 - Dark stage + tool band + thumbnail rail: Halide 01–02, Moises 01, Riverside 01–03.
 - Light canvas + floating tool strip + rising panel: Photoshop 01–03, Playground 01, Denim 01–03.
 - Type panel (sample grid, slider, stepper): Denim 01, 03.
