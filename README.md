@@ -29,6 +29,9 @@ git clone https://github.com/Achref23illi/ui-craft ~/.claude/skills/ui-craft
 Claude Code picks it up on the next session. Invoke with `/ui-craft` or just
 work on a mobile screen; the description triggers it.
 
-## Credits
+## Free for everyone
 
-Study, notes, rules and recipes by **Achref Arabi** (2026). MIT licensed.
+Made for the community by **Achref Arabi** (2026). Use it, fork it, change it and
+ship with it, in personal or commercial work. Issues and pull requests are welcome.
+
+MIT licensed.
