@@ -136,6 +136,10 @@ without scrolling; formatting choices are icons.**
 
 ## 10 · "A whole different design, but the same family"
 
+*§10 and §11 record one product owner's choices for a product with a community space.
+They worked there; treat them as defaults to adapt when a product has the same need,
+not as rules for every app.*
+
 ![Night stage](lessons-img/06-night-stage.jpg)
 
 The app has a second space (a community of battles and posts) that looked like a

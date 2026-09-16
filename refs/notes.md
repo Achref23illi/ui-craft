@@ -1,5 +1,9 @@
 # Study notes — one block per app (iOS). By Achref Arabi.
 
+What each app does, measured from its screens: observations, not targets. Where a
+number here differs from `SKILL.md` (many apps use 48–56-pt buttons, for example),
+the rules and measurements in `SKILL.md` win, and the project's own tokens win over both.
+
 ## Spotify (001) · dark media player
 - Stage #121212; the top of a screen takes a colour tint sampled from the artwork, fading to the stage within ~40% of the height. Header text sits on the tint.
 - Now Playing: 16pt gutter, square artwork full width, title 24/700 + artist 16 grey, thin 2pt progress with time labels 11pt, control row of 5 (shuffle · prev · big filled play 64 · next · device), then a quiet tertiary row (cast, share, queue). "Lyrics" panel peeks at the very bottom as a card.

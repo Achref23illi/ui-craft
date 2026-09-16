@@ -219,7 +219,8 @@ def main():
     q = typed | terms
     imgs = [p for keys, p in LESSON_IMAGES + EXAMPLES if q & set(keys) and os.path.exists(os.path.join(ROOT, p))]
     if imgs:
-        print("\n## published images (a real app before/after and the lessons behind it)")
+        print("\n## published images (one real app before/after and the lessons behind it;")
+        print("   take the principle, not the layout, colours or branding)")
         for p in imgs[:5]:
             print(p)
 

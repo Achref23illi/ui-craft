@@ -35,7 +35,10 @@ matching patterns, measurements observed in those apps, and published before/aft
 images. Read two or three sheets before drawing anything. `refs.py --list` prints the
 pattern names when you are unsure which words to use. If it reports no local library,
 work from the patterns and notes it prints and read at most two of the published
-images it lists; the rules below still hold.
+images it lists; the rules below still hold. The published before/after images show
+one app's result: take the principle from them, never copy their layout, colours or
+branding into another product, and do not score a review by how closely a screen
+resembles them.
 
 **3. Apply the rules as numbers, not vibes.** If a screen breaks one, the screen
 changes, not the rule. When sources disagree, this order wins:
