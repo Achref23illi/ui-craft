@@ -101,12 +101,46 @@ don't, how few things they show, and how every element earns its place.
     labels, not pictures, and rely on position for the rest. Tap targets 44 pt,
     48 pt at the screen edges, with padding between neighbours.
 
-13. **Buttons come in three sizes, and most screens need the small one.** The 48–52
-    hero pill only where the screen exists to make one decision (intro, export, publish,
-    paywall). Actions inside a browsing screen are compact 36–40 pills that hug their
-    text; tertiary actions are 15/600 text in the accent. Discs: 56 for source choices,
-    44 for media actions. Two hero buttons on consecutive screens means one of them is
-    a step, not a decision. Lessons in `refs/lessons.md`.
+13. **Buttons are compact, and most screens need the smallest one.** The main action is
+    44 pt (full width only where the screen exists to make one decision: intro, export,
+    publish, paywall); dark buttons 40; everything else 36, hugging its label; chips 30
+    with 13-pt labels; tertiary actions are 15/600 text in the accent. Discs: 56 for
+    source choices, 44 for media actions. Anything under 44 pt keeps a 44-pt touch
+    area with hitSlop. Two big buttons on consecutive screens means one of them is a
+    step, not a decision. Lessons in `refs/lessons.md` (§2, §7).
+
+14. **Motion follows the kind of screen, one animation per change.** Places you drill
+    into slide in from the right and follow the back swipe; tasks you open and close
+    (search, editor, sign-in, import, forms) rise from the bottom and swipe down; tabs
+    cross-fade in ~180 ms. Never let a container fade its content while the navigator
+    also animates. Tiles, cards and big round actions ease to ~96 % and spring back;
+    sheets ease out; panels rise. No bounce on the tab bar. Reduce Motion turns it all
+    off. (`refs/lessons.md` §5)
+
+15. **Brand atmosphere comes from one glow, not from paint.** A vertical gradient of
+    the brand colour under the status bar (~34 % → 0 over ~380 pt) with a light-and-dark
+    film grain masked to the same fade. Rows over it are transparent, fields are
+    frosted white, and a status-bar backdrop fades in once content scrolls under the
+    clock. A diagonal gradient leaves a seam; a white-only grain vanishes on white.
+    (`refs/lessons.md` §6)
+
+16. **States are icons; problems are words.** Synced, local, uploading, cloud-only,
+    downloaded, preview-only, export: one icon at the row's trailing edge, the word
+    for the screen reader. Conflicts, unsupported files and offline waits keep a word
+    next to the warning icon. Tool panels follow the same idea: formatting choices are
+    icon segments and steppers, and a panel fits without scrolling. (§8, §9)
+
+17. **A second space in the product is the same family on a different stage.** Same
+    typeface, icons, radii, grain and components; a different ground (a night palette)
+    and its second brand colour as the action. It gets its own tab bar (its sections as
+    tabs, the way back to the main space as the first tab with the main logo),
+    illustrated icons for its main places and a plain outline for the profile. Its
+    logo reuses the main wordmark's letter construction. Implement it as a theme scope
+    that components read, never as forked components. (§10)
+
+18. **Own the expressive details, and give only one of them a big moment.** Reactions
+    drawn in the brand gradients instead of system emoji, each with its own small tap
+    motion; one reaction (fire) gets the full-post effect. (§11)
 
 ## Measurements to reuse (390-pt screen)
 
@@ -117,10 +151,10 @@ don't, how few things they show, and how every element earns its place.
 | Section title → content | 12 · section → section 24–28 |
 | List row | 44 (dense) · 52–56 (with sub-line) · 64 (with 48 thumb) |
 | Card radius | 12 (rows, small cards) · 16–20 (artwork, sheets) · 24 (large sheets) |
-| Button | hero 48–52 (one decision per flow) · compact 36–40 pill, 13/600, hugs text · text 15/600 accent |
+| Button | main 44 · dark 40 · others 36 (hug label) · text 15/600 accent · 44-pt touch area via hitSlop |
 | Disc | 56 source choice · 44 media action · 32–36 row pill |
 | Editor | header 44 (back · undo · redo · primary) · transport row 44 · ruler 11 mono · video track 56–64 · audio track 40 · tool band 5–6 × (icon 22 + 11 label), scrolls, contextual |
-| Pill chip | 32–36 tall, 12–14 padding, 13/600 |
+| Pill chip | 30 tall, 12 padding, 13/600, grey fill · selected ink (or the space's accent) |
 | Icon | 24 in headers and rows · 20 in tool rows · 28–32 in feed rails |
 | Avatar | 24 inline · 32–36 in rows · 44–48 in lists · 64 stories · 96 profile |
 | Rail tile | 112–160 square · 160–180 × 16:9 · gap 8 · corner 12–20 |
@@ -131,6 +165,8 @@ don't, how few things they show, and how every element earns its place.
 | Toast | 40–48 pill, 14/600 |
 | Tool label | 11 uppercase mono/sans with 0.06 em, or 12–13 sentence case |
 | Big readout | 30–44/700 tabular (timecode, percentage, price) |
+| Motion | push: slide from right + back swipe · task: rise from bottom, swipe down · tabs: cross-fade 180 ms · press: 96 % + spring (not on tabs) |
+| Brand glow | vertical brand gradient 34 % → 15 % (30 %) → 6 % (60 %) → 0 over ~380 pt + light/dark grain masked; transparent rows, frosted fields, scroll backdrop |
 | Tap budget | ≤ 5 choices in the first viewport (tab bar and back excluded) · 1 primary · "more" ≤ 2 levels |
 | Typeface | one family with high x-height, open apertures, tabular figures, ≥ 5 weights; free with an Expo package (Plus Jakarta Sans, Figtree, DM Sans, Onest, Geist, Public Sans) or the system face; mono only for readouts |
 | Icons | one SVG set on a 24 grid (Phosphor: outline inactive / fill active; or Lucide 2-px); labelled except home · search · back · close |
@@ -151,7 +187,8 @@ don't, how few things they show, and how every element earns its place.
   ticks · playhead line · video track 56–64 (thumbnails, selected with a 2-pt accent
   outline, trim handles) · audio track 40 (name + duration on a colour) · mute discs at
   the left · tool band of 5–6 labelled tools that scrolls and changes with the selection
-  · tool panels as sheets with Cancel · title · Apply and a Reset in the header.
+  · tool panels as sheets with Cancel · title · Apply and a Reset in the header, each
+  fitting without scrolling, formatting choices as icon segments and steppers.
 - **Publish / form**: title 28/700 · destination tiles or radio cards · one field at a time with a
   13 grey label · "More options" disclosure · pinned CTA with a 12 grey line under it.
 - **Settings / profile**: avatar 44–56 row · grouped cards of 44–52 rows · section titles 15/600
@@ -174,7 +211,9 @@ don't, how few things they show, and how every element earns its place.
 - Are all tiles in a rail the same size, corner and label style?
 - Is the accent used ≤ 3 times on the screen (action, active tab, selection)?
 - Are there ≤ 5 tappable choices in the first viewport (per band on a tool screen), and does every action icon have a label?
-- Is the only hero-size button on a screen that ends a flow; are in-screen actions compact?
+- Are buttons 44 / 40 / 36 with 44-pt touch areas, and is the only full-width one at a flow's end?
+- Does each transition animate once (slide, rise or cross-fade), with no bounce on the tab bar?
+- Are states shown as icons, with words only for problems, and does every tool panel fit without scrolling?
 - Do empty, loading and error states exist, each as one line + one move?
 - Is every number tabular, every timecode mono, every uppercase label ≤ 12 pt?
 - Does the tool UI (if any) sit on black with the picture untouched?
@@ -194,5 +233,7 @@ label; all-caps 14-pt headings; toasts that need to be dismissed.
 - `refs/patterns.md` — pattern → apps and screens to look at.
 - `refs/notes.md` — per-app measurements and observations.
 - `refs/ux-research.md` — sourced findings on choices per screen, icon labels, tap targets, typefaces and icon systems.
-- `refs/lessons.md` — what changed when the research met real screens (tool-screen exception, button sizes).
+- `refs/lessons.md` — what changed when the research met real screens, then the product owner's review (motion, glow, compact buttons, status icons, a second space, own reactions).
+- `refs/lessons-img/` — screenshots for each lesson (logos blurred).
+- `examples/before-after/` — the same app before and after the skill, screen by screen.
 - `refs/sheets/` — optional local screen library (six-up contact sheets), used when present.

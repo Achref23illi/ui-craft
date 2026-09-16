@@ -16,9 +16,25 @@ What you get:
   a done-checklist and the anti-patterns that separate cheap screens from real ones.
 - **`refs/notes.md`** — per-app observations with measurements, app by app.
 - **`refs/ux-research.md`** — sourced findings: choices per screen, icon labels, tap targets, typefaces, icon systems.
-- **`refs/lessons.md`** — what changed when the research met real screens.
+- **`refs/lessons.md`** — what changed when the research met real screens and a product owner's review, with screenshots in `refs/lessons-img/`.
+- **`examples/before-after/`** — one app, before and after, screen by screen.
 - **`refs/patterns.md`** — pattern → which apps and screens to look at.
 - **`refs/INDEX.md`** — the 44 apps and what each is good for.
+
+## Before and after
+
+The same app, a French video studio with a social space, before and after applying
+the skill and one round of review by its product owner (logos blurred).
+
+![Before and after](examples/before-after/overview.jpg)
+
+![Social home](examples/before-after/06-social-home.jpg)
+
+Screen by screen: [library](examples/before-after/01-library.jpg) ·
+[create](examples/before-after/02-create.jpg) · [media detail](examples/before-after/03-media.jpg) ·
+[editor](examples/before-after/04-editor.jpg) · [publish](examples/before-after/05-publish.jpg) ·
+[social home](examples/before-after/06-social-home.jpg). What changed and why, with
+screenshots, is in [`refs/lessons.md`](refs/lessons.md).
 
 ## Install
 
