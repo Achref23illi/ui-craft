@@ -160,5 +160,4 @@ label; all-caps 14-pt headings; toasts that need to be dismissed.
 - `refs/patterns.md` — pattern → sheets to open.
 - `refs/notes.md` — per-app measurements and observations.
 - `refs/sheets/` — 434 contact sheets (six screens each). `refs/screens/` — 2,602 originals.
-  Both are built locally (see README); they are not distributed.
 - `refs/dl.sh`, `refs/sheets.py`, `refs/apps.json` — the pipeline to extend the library.

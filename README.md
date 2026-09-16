@@ -17,8 +17,10 @@ What you get:
 - **`refs/notes.md`** — per-app observations with measurements, app by app.
 - **`refs/patterns.md`** — pattern → which apps and sheets to look at.
 - **`refs/INDEX.md`** — the 44 apps and what each is good for.
-- **`refs/dl.sh`, `refs/sheets.py`** — the pipeline that builds a local contact-sheet
-  library so the agent can *look* at the real thing before drawing.
+- **`refs/screens/`** — 2,602 screens from the 44 apps (488×1057), the engine of the skill.
+- **`refs/sheets/`** — 434 six-up contact sheets, so the agent can *look* at the real
+  thing before drawing: one Read shows six screens of the pattern at hand.
+- **`refs/dl.sh`, `refs/sheets.py`** — the pipeline that built the library and extends it.
 
 ## Install
 
@@ -29,18 +31,17 @@ git clone https://github.com/Achref23illi/ui-craft ~/.claude/skills/ui-craft
 Claude Code picks it up on the next session. Invoke with `/ui-craft` or just
 work on a mobile screen; the description triggers it.
 
-## Building the screenshot library (optional, local only)
+## Extending the library
 
-The rules and notes work on their own. The contact sheets make them concrete.
-Screens come from [Refero](https://refero.design) and are the app makers'
-copyrighted UI, so they are **not** in this repo; build them locally with your
-own Refero account:
+Screens were catalogued from [Refero](https://refero.design). To add apps:
 
 1. On a Refero app page, collect the screenshot ids (see the comment at the top
    of `refs/dl.sh` for the expected `appId:id,id,…;` format).
 2. `refs/dl.sh ids.txt` downloads thumbnails into `refs/screens/<appId>/`.
 3. `python3 refs/sheets.py` builds six-up contact sheets into `refs/sheets/`
    (needs Pillow). `refs/apps.json` maps ids to app names.
+
+The screens are included for study and reference; each belongs to its app's maker.
 
 ## Credits
 
