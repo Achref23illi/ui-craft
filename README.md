@@ -1,6 +1,31 @@
 # ui-craft — an agent skill for mobile UI that looks like a real app
 
-**By [Achref Arabi](https://github.com/Achref23illi)** · [LinkedIn](https://www.linkedin.com/in/achraf-arabi-a35376221/) · [Instagram](https://www.instagram.com/achref.dev/)
+**By [Achref Arabi](https://github.com/Achref23illi)** · [LinkedIn](https://www.linkedin.com/in/achraf-arabi/) · [Instagram](https://www.instagram.com/achref.dev/)
+
+[![GitHub stars](https://img.shields.io/github/stars/Achref23illi/ui-craft?style=flat&color=8a1c4a)](https://github.com/Achref23illi/ui-craft/stargazers)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+![Works with](https://img.shields.io/badge/works%20with-Claude%20Code%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-555)
+
+Your coding agent reads it before it touches a screen: rules with real numbers, screen
+recipes and a fast screenshot review, built from 2,600 screens of 44 apps people love.
+
+![Before and after](examples/before-after/overview.jpg)
+
+<sub>The same app, a French video studio with a social space, before and after applying the skill and one round of review by its product owner (logos blurred).</sub>
+
+**If ui-craft makes your screens better, a ⭐ helps other developers find it.**
+
+## Quick start
+
+```bash
+git clone https://github.com/Achref23illi/ui-craft ~/.claude/skills/ui-craft
+```
+
+Open Claude Code in your app's repository and ask *"Design the settings screen with
+ui-craft"* or *"Review these screenshots with ui-craft: `./shots`"*. Setup for Codex,
+Cursor and Gemini CLI is [below](#1--install).
+
+## What's inside
 
 A skill for Claude Code (and any agent that reads `SKILL.md`) built from a study of
 44 shipped iOS apps — Spotify, Airbnb, Instagram, TikTok, Apple Music, Apple TV,
@@ -28,12 +53,7 @@ What you get:
   from a screenshot), `doctor.py` (checks the install and the reference index).
 - **`AGENTS.md`** — the same workflow for Codex, Cursor, Gemini CLI and other agents.
 
-## Before and after
-
-The same app, a French video studio with a social space, before and after applying
-the skill and one round of review by its product owner (logos blurred).
-
-![Before and after](examples/before-after/overview.jpg)
+## Before and after, screen by screen
 
 ![Social home](examples/before-after/06-social-home.jpg)
 
@@ -175,8 +195,9 @@ git -C ~/.claude/skills/ui-craft pull
 Made for the community by **Achref Arabi** (2026). Use it, fork it, change it and
 ship with it, in personal or commercial work. Issues and pull requests are welcome.
 
-Follow the work: [LinkedIn](https://www.linkedin.com/in/achraf-arabi-a35376221/) ·
-[Instagram](https://www.instagram.com/achref.dev/) · [GitHub](https://github.com/Achref23illi) · [arabiachraf.me](https://arabiachraf.me)
+Follow the work: [LinkedIn](https://www.linkedin.com/in/achraf-arabi/) ·
+[Instagram](https://www.instagram.com/achref.dev/) · [GitHub](https://github.com/Achref23illi).
+If it helped you, star the repo so others can find it.
 
 The reference screenshots in `refs/screens/` and `refs/sheets/` show apps made by
 their respective companies and remain their property. They are included for study and
