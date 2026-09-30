@@ -5,10 +5,13 @@
   python3 scripts/refs.py settings profile --max 4
   python3 scripts/refs.py --list
 
+  python3 scripts/refs.py --screen "Wise 03·2"      the screen file behind a citation, to measure it
+
 Prints, best first:
   1. local contact sheets (refs/sheets/*.jpg) for the apps that do the pattern well,
      if a local library is present (read each one: six screens per image);
-  2. the matching lines of refs/patterns.md and refs/notes.md;
+  2. the matching lines of refs/patterns.md, the closest measured recipes of
+     refs/recipes.md and the notes of refs/notes.md;
   3. published images that apply (refs/lessons-img/, examples/before-after/).
 
 No third-party dependencies.
@@ -48,6 +51,61 @@ SYNONYMS = {
     "account": ["settings", "profile", "grouped"],
     "toast": ["toast", "confirmation"],
     "list": ["rows", "lists"],
+    "money": ["money", "balance", "amount", "transaction", "send"],
+    "bank": ["money", "balance", "transaction"],
+    "wallet": ["money", "balance", "crypto"],
+    "fintech": ["money", "balance", "amount", "chart"],
+    "send": ["amount", "send", "money", "keypad"],
+    "payment": ["checkout", "money", "amount", "pay"],
+    "transfer": ["amount", "send", "money"],
+    "chart": ["charts", "stats", "dashboard", "graph"],
+    "stats": ["charts", "stats", "progress", "dashboard"],
+    "dashboard": ["charts", "stats", "dashboard", "home"],
+    "shop": ["commerce", "product", "cart", "checkout", "grid"],
+    "store": ["commerce", "product", "cart"],
+    "product": ["commerce", "product", "grid"],
+    "cart": ["cart", "checkout", "commerce"],
+    "checkout": ["checkout", "cart", "commerce", "payment"],
+    "order": ["checkout", "cart", "tracking"],
+    "map": ["maps", "location", "place", "route"],
+    "location": ["maps", "location", "place"],
+    "route": ["maps", "route", "navigation"],
+    "calendar": ["calendar", "scheduling", "date", "timeline"],
+    "schedule": ["calendar", "scheduling", "timeline"],
+    "event": ["event", "calendar", "ticket"],
+    "task": ["task", "list", "rows", "calendar"],
+    "todo": ["task", "list", "rows"],
+    "login": ["sign", "account", "security", "passcode"],
+    "signin": ["sign", "account", "security"],
+    "signup": ["sign", "onboarding", "account"],
+    "auth": ["sign", "account", "security", "passcode", "code"],
+    "otp": ["code", "passcode", "sign"],
+    "workout": ["workouts", "timers", "live", "session"],
+    "fitness": ["workouts", "timers", "stats"],
+    "timer": ["timers", "live", "session"],
+    "ai": ["assistants", "voice", "chat", "composer"],
+    "assistant": ["assistants", "voice", "chat"],
+    "voice": ["voice", "assistants", "record"],
+    "article": ["reading", "articles", "news"],
+    "news": ["reading", "articles", "news", "feed"],
+    "reader": ["reading", "articles", "book"],
+    "book": ["reading", "book"],
+    "notification": ["notifications", "inbox"],
+    "inbox": ["inbox", "notifications", "mail"],
+    "mail": ["inbox", "mail", "rows"],
+    "loading": ["loading", "skeletons", "errors"],
+    "skeleton": ["loading", "skeletons"],
+    "error": ["errors", "loading", "empty"],
+    "delete": ["destructive", "confirmation", "dialog"],
+    "confirm": ["confirmation", "destructive", "dialog", "toast"],
+    "dialog": ["dialogs", "confirmation", "destructive", "sheet"],
+    "filter": ["filters", "sort", "segmented"],
+    "sort": ["filters", "sort"],
+    "header": ["headers", "navigation", "title"],
+    "navigation": ["headers", "navigation", "tab bar"],
+    "weather": ["charts", "stats", "dashboard"],
+    "dating": ["cards", "swipe", "profile"],
+    "recipe": ["reading", "grid", "timers"],
 }
 
 LESSON_IMAGES = [
@@ -108,12 +166,21 @@ def app_matches(app, name):
     return bool(a) and (name.startswith(a) or a in name)
 
 
+def find_sheet(sheets, app, n):
+    """The sheet for 'App NN': an exact name first ('Uber' is not 'Uber Eats'), then the closest partial match."""
+    hits = [(name, path) for name, num, path in sheets if num == n and app_matches(app, name)]
+    if not hits:
+        return None
+    exact = [p for name, p in hits if name == norm(app)]
+    return exact[0] if exact else min(hits, key=lambda h: len(h[0]))[1]
+
+
 def refs_in_line(line):
     """'Spotify 01–02, Apple Music 01, 03; TIDAL 01' -> [('Spotify',1),('Spotify',2),('Apple Music',1),…]"""
-    body = line.split(":", 1)[1] if ":" in line else line
+    body = line.rsplit(": ", 1)[1] if ": " in line else line  # ratios like 16:9 stay in the description
     body = re.sub(r"\([^)]*\)", " ", body)  # parenthetical notes hold numbers that are not sheets
     out, app = [], None
-    for m in re.finditer(r"(?:([A-Z(][\w.'&+() ]*?)\s+)?(?<![\d/.])(\d{2})(?![\d/])(?:\s*[–-]\s*(\d{2}))?", body):
+    for m in re.finditer(r"(?:([A-Za-z(][\w.'&+() ]*?)\s+)?(?<![\d/.])(\d{2})(?![\d/])(?:\s*[–-]\s*(\d{2}))?", body):
         if m.group(1):
             app = m.group(1).strip()
         if not app:
@@ -124,12 +191,63 @@ def refs_in_line(line):
     return out
 
 
+def screen_file(ref):
+    """'Wise 03·2' (or 'Wise 03.2') -> the screen file and its source, from refs/screens-index.csv."""
+    import csv
+    m = re.match(r"^\s*(.+?)\s+(\d{2})\s*[·.\-/ ]\s*(\d)\s*$", ref)
+    path = os.path.join(ROOT, "refs", "screens-index.csv")
+    if not m or not os.path.exists(path):
+        return None
+    app, sheet, pos = m.group(1), int(m.group(2)), int(m.group(3))
+    n = (sheet - 1) * 6 + pos
+    rows = [r for r in csv.DictReader(open(path, encoding="utf-8")) if int(r["n"]) == n and app_matches(app, norm(r["app"]))]
+    if not rows:
+        return None
+    exact = [r for r in rows if norm(r["app"]) == norm(app)]
+    return (exact or sorted(rows, key=lambda r: len(r["app"])))[0]
+
+
+def recipe_hits(typed_s, extra_s, limit=3):
+    path = os.path.join(ROOT, "refs", "recipes.md")
+    if not os.path.exists(path):
+        return []
+    sections = open(path, encoding="utf-8").read().split("\n## ")[1:]
+    best = []
+    for sec in sections:
+        head, _, body = sec.partition("\n")
+        if head.startswith("How to use"):
+            continue
+        hw = {stem(w) for w in words(head)}
+        for line in body.splitlines():
+            if line.startswith("- **"):
+                label = line.split("**:", 1)[0]
+                lw = {stem(w) for w in words(label)}
+                score = 3 * len(typed_s & hw) + 2 * len(typed_s & lw) + len(extra_s & (hw | lw)) + len(typed_s & {stem(w) for w in words(line)}) / 2
+                if score >= 2:
+                    best.append((score, head, line))
+    best.sort(key=lambda b: -b[0])
+    return best[:limit]
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("query", nargs="*", help="pattern words, e.g. 'video editor', 'settings', 'paywall'")
     ap.add_argument("--max", type=int, default=6, help="max sheets to list")
     ap.add_argument("--list", action="store_true", help="list pattern headings")
+    ap.add_argument("--screen", help="print the screen file behind a citation like 'Wise 03·2', to measure it")
     args = ap.parse_args()
+
+    if args.screen:
+        row = screen_file(args.screen)
+        if not row:
+            raise SystemExit(f"no screen found for {args.screen!r} (use 'App NN·k', k = 1–6 left to right, top to bottom)")
+        print(os.path.join("refs", "screens", row["app_id"], row["file"]))
+        if row.get("label"):
+            print(f"label: {row['label']}")
+        if row.get("refero_url"):
+            print(f"source: {row['refero_url']}")
+        print(f"measure: python3 scripts/measure.py refs/screens/{row['app_id']}/{row['file']}")
+        return
 
     patterns = open(os.path.join(ROOT, "refs", "patterns.md"), encoding="utf-8").read().splitlines()
     if args.list or not args.query:
@@ -147,7 +265,7 @@ def main():
             continue
         if not line.startswith("- "):
             continue
-        head = {stem(w) for w in words(heading + " " + line.split(":", 1)[0])}
+        head = {stem(w) for w in words(heading + " " + line.rsplit(": ", 1)[0])}
         body = {stem(w) for w in words(line)}
         score = 3 * len(typed_s & head) + len(extra_s & head) + len(typed_s & body)
         if score >= 2:
@@ -163,11 +281,10 @@ def main():
         wanted = []
         for _, _, line in scored:
             for app, n in refs_in_line(line):
-                for name, num, path in sheets:
-                    if num == n and app_matches(app, name) and path not in seen:
-                        wanted.append((norm(app), path))
-                        seen.add(path)
-                        break
+                path = find_sheet(sheets, app, n)
+                if path and path not in seen:
+                    wanted.append((norm(app), path))
+                    seen.add(path)
         # one sheet per app first, then the rest, so a short list shows several apps
         first, rest, apps_seen = [], [], set()
         for app, path in wanted:
@@ -187,6 +304,12 @@ def main():
     print("## patterns")
     for _, heading, line in scored[:6]:
         print(f"[{heading}] {line[2:]}")
+
+    recipes = recipe_hits(typed_s, extra_s)
+    if recipes:
+        print("\n## measured recipes (refs/recipes.md; `--screen \"App NN·k\"` gives the file to measure)")
+        for _, head, line in recipes:
+            print(f"[{head}] {line[2:]}")
 
     apps = []
     for _, _, line in scored[:3]:
@@ -226,4 +349,9 @@ def main():
 
 
 if __name__ == "__main__":
+    try:
+        import signal
+        signal.signal(signal.SIGPIPE, signal.SIG_DFL)  # quiet when piped into head
+    except (AttributeError, ValueError):
+        pass
     main()

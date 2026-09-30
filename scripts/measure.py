@@ -12,7 +12,8 @@ heights. Background is taken from the first pixel of the line; anything that dif
 from it by more than --tol counts as content.
 
 Scale: phones are shot at 3x (1170, 1179, 1206, 1284, 1290, 1320 px wide) or 2x
-(750, 828). Override with --scale.
+(750, 828). Screens in the reference library (refs/screens/, 488 px wide) are
+375-pt iPhones and are measured at 488/375 px per pt. Override with --scale.
 
 Requires Pillow (pip install pillow).
 """
@@ -26,6 +27,8 @@ except ImportError:  # pragma: no cover
 
 
 def guess_scale(width):
+    if width in (488, 489):  # reference library thumbnails: a 375-pt iPhone (1125 px) at 488 px
+        return 488 / 375
     if width >= 1100:
         return 3
     if width >= 700:

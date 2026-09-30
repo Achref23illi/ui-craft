@@ -7,7 +7,7 @@
 ![Works with](https://img.shields.io/badge/works%20with-Claude%20Code%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-555)
 
 Your coding agent reads it before it touches a screen: rules with real numbers, screen
-recipes and a fast screenshot review, built from 2,600 screens of 44 apps people love.
+recipes and a fast screenshot review, built from 4,500 screens of 78 apps people love.
 
 ![Before and after](examples/before-after/overview.jpg)
 
@@ -18,7 +18,7 @@ recipes and a fast screenshot review, built from 2,600 screens of 44 apps people
 ## Quick start
 
 ```bash
-git clone https://github.com/Achref23illi/ui-craft ~/.claude/skills/ui-craft
+git clone --depth 1 https://github.com/Achref23illi/ui-craft ~/.claude/skills/ui-craft
 ```
 
 Open Claude Code in your app's repository and ask *"Design the settings screen with
@@ -28,27 +28,35 @@ Cursor and Gemini CLI is [below](#1--install).
 ## What's inside
 
 A skill for Claude Code (and any agent that reads `SKILL.md`) built from a study of
-44 shipped iOS apps — Spotify, Airbnb, Instagram, TikTok, Apple Music, Apple TV,
-Netflix, VSCO, Halide, Denim, Photoshop, Riverside, Moises, Playground, Revolut,
-Linear, Notion, ChatGPT, Claude, Uber and more — 2,600 screens read for how they
-spend space, how few things they show, and how each element earns its place.
+78 shipped iOS apps — Spotify, Airbnb, Instagram, TikTok, Apple Music, Apple TV,
+Netflix, VSCO, Halide, Denim, Photoshop, Riverside, Moises, Revolut, Wise, Coinbase,
+PayPal, Linear, Notion, Cron, ChatGPT, Gemini, Claude, Uber, Uber Eats, Google Maps,
+Apple Books, The Athletic, Nike Training Club and more — 4,536 screens read for how
+they spend space, how few things they show, and how each element earns its place.
 
 What you get:
 
-- **`SKILL.md`** — the rules with the numbers behind them, a table of reusable
-  measurements for a 390-pt screen, nine screen recipes (home with rails, media
-  detail, player, editor, publish form, settings, comments, paywall, onboarding),
-  a done-checklist and the anti-patterns that separate cheap screens from real ones.
-- **`refs/notes.md`** — per-app observations with measurements, app by app.
+- **`SKILL.md`** — 23 rules with the numbers behind them, a table of reusable
+  measurements for a 390-pt screen, 29 screen recipes (home, media detail, player,
+  editor, publish, settings, comments, paywall, onboarding, money home, send, asset
+  detail, product grid and page, cart and checkout, filters, map with a sheet,
+  calendar, task editor, inbox, sign-in, passcode, onboarding question, permission
+  sheet, AI chat, reader, live workout, destructive confirm…), a done-checklist and
+  the anti-patterns that separate cheap screens from real ones.
+- **`refs/recipes.md`** — about 200 measured recipes in 28 screen types, each citing
+  the exact screen it was measured on.
+- **`refs/notes.md`** — per-app observations with measurements, 78 apps.
 - **`refs/ux-research.md`** — sourced findings: choices per screen, icon labels, tap targets, typefaces, icon systems.
 - **`refs/lessons.md`** — what changed when the research met real screens and a product owner's review, with screenshots in `refs/lessons-img/`.
 - **`examples/before-after/`** — one app, before and after, screen by screen.
-- **`refs/patterns.md`** — pattern → which apps and screens to look at.
-- **`refs/INDEX.md`** — the 44 apps and what each is good for.
-- **`refs/screens/` and `refs/sheets/`** — the reference library itself: 2,602 screens
-  from the 44 apps and 434 contact sheets of six screens each, so an agent can study six
-  real screens in one image read.
-- **`scripts/`** — `refs.py` (references for a pattern), `sheet.py` (contact sheets
+- **`refs/patterns.md`** — 500 patterns under 29 headings → which apps and sheets to look at.
+- **`refs/INDEX.md`** — the 78 apps and what each is good for.
+- **`refs/screens/` and `refs/sheets/`** — the reference library itself: 4,536 screens
+  from the 78 apps and 760 contact sheets of six screens each, so an agent can study six
+  real screens in one image read. `refs/screens-index.csv` maps each screen to its sheet
+  and position.
+- **`scripts/`** — `refs.py` (references for a pattern, and `--screen` to find a cited
+  screen), `sheet.py` (contact sheets
   from screenshots, for fast reviews), `measure.py` (sizes, gutters and gaps in points
   from a screenshot), `doctor.py` (checks the install and the reference index).
 - **`AGENTS.md`** — the same workflow for Codex, Cursor, Gemini CLI and other agents.
@@ -62,6 +70,25 @@ Screen by screen: [library](examples/before-after/01-library.jpg) ·
 [editor](examples/before-after/04-editor.jpg) · [publish](examples/before-after/05-publish.jpg) ·
 [social home](examples/before-after/06-social-home.jpg). What changed and why, with
 screenshots, is in [`refs/lessons.md`](refs/lessons.md).
+
+## What's new in v2
+
+- **34 more apps**, collected through Refero: Wise, Coinbase, PayPal, Acorns, Copilot,
+  Uber Eats, Target, Asos, SSENSE, Kitchen Stories, Google Maps, komoot, Tripsy, Tinder,
+  Apple Invites, X, Todoist, Cron, Structured, Gmail, Bear, Apple Books, Apple News,
+  Apple Podcasts, The Athletic, Substack, CARROT Weather, Calm, Train Fitness, Dropset,
+  Nike Training Club, Google Gemini, Luminar, Wispr Flow — 1,934 screens, 326 sheets.
+- **Every sheet read**, old and new (760), and the key screens measured in points with
+  `scripts/measure.py`, which now reads the library's own screens at the right scale.
+- **Five new rules**: numbers as content on money and data screens, selection and
+  disabled states, maps as a stage, staying native through help, legal and payment, and
+  readable secondary text. Rules 3–13 are sharpened with the measured ranges (gutters,
+  row classes, grid gaps, colour roles, sheets, states, labels, button sizes).
+- **20 new screen recipes** in `SKILL.md` and **`refs/recipes.md`**, about 200 measured
+  recipes by screen type, each citing its screen.
+- **`refs/patterns.md`** grew from about 70 to 500 patterns under 29 headings, and
+  `scripts/refs.py` now also prints the closest measured recipes and finds a cited
+  screen (`--screen "App NN·k"`).
 
 ## Setup
 
@@ -78,14 +105,17 @@ screenshots, is in [`refs/lessons.md`](refs/lessons.md).
 **Claude Code, for all your projects**
 
 ```bash
-git clone https://github.com/Achref23illi/ui-craft ~/.claude/skills/ui-craft
+git clone --depth 1 https://github.com/Achref23illi/ui-craft ~/.claude/skills/ui-craft
 ```
 
 **Claude Code, for one project only** (committed with the project, shared with the team)
 
 ```bash
-git clone https://github.com/Achref23illi/ui-craft .claude/skills/ui-craft
+git clone --depth 1 https://github.com/Achref23illi/ui-craft .claude/skills/ui-craft
 ```
+
+The reference library makes the clone about 400 MB; `--depth 1` skips the history. For
+the rules only, delete `refs/screens/` and `refs/sheets/` after cloning (RULES mode).
 
 **Codex, Gemini CLI, Aider and other agents**: clone it anywhere (for example
 `~/.agents/ui-craft`) and add one line to the project's `AGENTS.md` (or `GEMINI.md`):
@@ -148,6 +178,10 @@ python3 ~/.claude/skills/ui-craft/scripts/measure.py shots/01-home.png --col 60
 
 # references for the pattern at hand (--list shows every pattern name)
 python3 ~/.claude/skills/ui-craft/scripts/refs.py "home feed"
+python3 ~/.claude/skills/ui-craft/scripts/refs.py "checkout"
+
+# the screen behind a citation like "Wise 03·2", then measure it
+python3 ~/.claude/skills/ui-craft/scripts/refs.py --screen "Wise 03·2"
 ```
 
 Then: "Review `shots/sheets` with ui-craft." You get a table of the ten findings that
@@ -155,7 +189,7 @@ matter most, each with the rule, the measurement and the fix.
 
 ### 5 · Extend the reference library (optional)
 
-The repository ships with 2,602 screens and 434 contact sheets. Add your own from
+The repository ships with 4,536 screens and 760 contact sheets. Add your own from
 screenshots you have the right to keep: your own apps, apps you screenshot on your
 phone for study, exports from inspiration services you subscribe to.
 

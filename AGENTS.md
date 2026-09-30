@@ -9,7 +9,8 @@ The short version:
 1. **References first.** `python3 scripts/refs.py "<pattern>"` lists the reference
    contact sheets to open (one image, six real screens) and the matching notes. Open
    two or three before designing (three at most for a fast review). `--list` shows
-   the pattern names.
+   the pattern names. It also prints the closest measured recipes from
+   `refs/recipes.md`; `--screen "App NN·k"` gives a cited screen's file to measure.
 2. **Rules as numbers.** Apply the rules and measurements in `SKILL.md`. When sources
    disagree: the project's own tokens, then the rules, then the recipes, then the
    per-app notes.
